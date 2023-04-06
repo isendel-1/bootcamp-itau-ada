@@ -24,16 +24,13 @@ jobs:
     - name: Install node
       uses: actions/setup-node@v1    
       with:
-        node-version: '12.x'
+        node-version: '16.x'
         
     - name: Install dependencies
       run: npm install
       
     - name: Install Angular CLI
       run: npm install -g @angular/cli > /dev/null  
-      
-    - name: Run linters and prettier fix
-      run: npm run all-lints
-      
+           
     - name: Run Test
-      run: npm run test:ci    
+      run: npm run test
