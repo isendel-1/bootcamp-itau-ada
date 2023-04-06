@@ -2,7 +2,7 @@ name: Teste backtend
 
 defaults:
   run:
-    working-directory: "backend/src/main/java/br/com/letscodebyada/"
+    working-directory: "backend/src/main"
 
 on:
   workflow_dispatch:
