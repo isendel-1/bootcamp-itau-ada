@@ -1,8 +1,8 @@
-name: Teste backtend
+name: Teste backend
 
 defaults:
   run:
-    working-directory: "backend/src/main"
+    working-directory: "backend/"
 
 on:
   workflow_dispatch:
