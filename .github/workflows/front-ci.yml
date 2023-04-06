@@ -1,4 +1,4 @@
-name: Teste front
+name: front
 
 defaults:
   run:
@@ -16,22 +16,15 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-      
-    - name: Install node
-      uses: actions/setup-node@v1    
-      with:
-        node-version: '16.x'
+      - uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: sudo apt-get update && sudo apt-get -y install npm
-      
-    - name: Install Angular CLI
-      run: npm install -g @angular/cli
-            
-    - name: Run tests
-      run: ng test
-
-    - name: Build
-      run: npm run build
+      - name: Set up nodejs 14
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+        
+      - name: Getting dependencies
+        run: |
+          apt-get update && apt-get -y install npm
+          npm install -g @angular/cli
+          ng test
