@@ -14,7 +14,7 @@ on:
 
 jobs:
   Teste:
-    name: Teste frontend
+    name: Teste front
     runs-on: self-hosted
 
     steps:
