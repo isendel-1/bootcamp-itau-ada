@@ -28,7 +28,10 @@ jobs:
       run: npm install
       
     - name: Install Angular CLI
-      run: npm install -g @angular/cli > /dev/null  
-           
+      run: npm install -g @angular/cli
+      
+    - name: Ir para diretorio app
+      run: cd app       
+            
     - name: Run Tests
       run: ng test
