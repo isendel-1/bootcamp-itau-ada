@@ -9,8 +9,6 @@ on:
   push:
     branches:
     - frontend
-    paths:
-    - 'frontend/**'
 
 jobs:
   Teste:
