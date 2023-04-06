@@ -16,15 +16,16 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout
+      uses: actions/checkout@v1
+      
+    - name: Install node
+      uses: actions/setup-node@v1    
+      with:
+        node-version: '14.x'
 
-      - name: Set up nodejs 14
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-        
-      - name: Getting dependencies
-        run: |
+    - name: Install dependencies
+      run: |
           apt-get update && apt-get -y install npm
           npm install -g @angular/cli
-          ng test
+          ng test   
