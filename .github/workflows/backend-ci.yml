@@ -1,0 +1,26 @@
+name: Teste backtend
+
+defaults:
+  run:
+    working-directory: "backend/src/main/java/br/com/letscodebyada/"
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+    - backend
+
+jobs:
+  Teste:
+    name: Teste backend
+    runs-on: self-hosted
+
+    steps:
+    - name: Install dependencies
+      run: apt-get update && apt-get -y install maven
+      
+    - name: Run tests
+      run: mvn clean test
+
+    - name: Build do java
+      run: mvn clean package
