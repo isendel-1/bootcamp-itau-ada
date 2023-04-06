@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Install dependencies
-      run: apt-get update && apt-get -y install maven
+      run: sudo apt-get update && apt-get -y install maven
       
     - name: Run tests
       run: mvn clean test
