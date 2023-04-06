@@ -30,5 +30,4 @@ jobs:
         run: npm install -g @angular/cli > /dev/null
         
       - name: Rodar testes 
-        run: npm ci
         run: npm run test       
