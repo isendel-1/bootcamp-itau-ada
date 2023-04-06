@@ -25,10 +25,10 @@ jobs:
         node-version: '16.x'
         
     - name: Install dependencies
-      run: apt-get update && apt-get -y install npm
+      run: sudo apt-get update apt-get update && apt-get -y install npm
       
     - name: Install Angular CLI
-      run: npm install -g @angular/cli
+      run: sudo apt-get update npm install -g @angular/cli
             
     - name: Run Tests
       run: ng test
