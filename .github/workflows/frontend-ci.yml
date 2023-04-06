@@ -1,3 +1,4 @@
+
 name: Teste frontend
 
 defaults:
@@ -16,21 +17,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-      
-    - name: Install node
-      uses: actions/setup-node@v1    
-      with:
-        node-version: '16.x'
-        
-    - name: Install dependencies
-      run: sudo apt-get update apt-get update && apt-get -y install npm
-      
-    - name: Install Angular CLI
-      run: sudo apt-get update npm install -g @angular/cli
-            
-    - name: Run Tests
-      run: ng test
-      
-      
+      - uses: actions/checkout@v2
+      - uses: ng-easy/npm-install@v2
+      - run: npm run build
