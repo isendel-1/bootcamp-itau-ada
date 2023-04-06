@@ -22,10 +22,13 @@ jobs:
     - name: Install node
       uses: actions/setup-node@v1    
       with:
-        node-version: '14.x'
-
+        node-version: '16.x'
+        
     - name: Install dependencies
-      run: |
-          apt-get update && apt-get -y install npm
-          npm install -g @angular/cli
-          ng test   
+      run: npm install
+      
+    - name: Install Angular CLI
+      run: npm install -g @angular/cli > /dev/null
+             
+    - name: Teste
+      run: ng test   
