@@ -12,7 +12,7 @@ on:
 
 jobs:
   Teste:
-    name: Teste front
+    name: Teste frontend
     runs-on: self-hosted
 
     steps:
