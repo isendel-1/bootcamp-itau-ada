@@ -2,7 +2,7 @@ name: Teste frontend
 
 defaults:
   run:
-    working-directory: "frontend/"
+    working-directory: "frontend/app"
 
 on:
   workflow_dispatch:
@@ -29,9 +29,6 @@ jobs:
       
     - name: Install Angular CLI
       run: npm install -g @angular/cli
-      
-    - name: Ir para diretorio app
-      run: cd app       
             
     - name: Run Tests
       run: ng test
