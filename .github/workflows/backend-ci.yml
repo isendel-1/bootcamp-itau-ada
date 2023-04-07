@@ -14,7 +14,7 @@ on:
 
 env:
   USER: ${{ github.actor }}
-  GH_TOKEN: ${{ secrets.GH_TOKEN }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   REGISTRY: ghcr.io
 
 jobs:
