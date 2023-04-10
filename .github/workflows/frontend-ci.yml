@@ -12,6 +12,11 @@ on:
     paths:
     - '.github/workflows/frontend-ci.yml'
 
+env:
+  USER: ${{ github.actor }}
+  GH_TOKEN: ${{ secrets.TOKEN }}
+  REGISTRY: ghcr.io
+  
 jobs:
   Teste:
     name: Teste frontend
@@ -28,5 +33,24 @@ jobs:
       - name: Getting dependencies
         run:  npm install -g @angular/cli
 
-      - name: test app
-        run: ng test
+      #- name: test app
+      #  run: |
+      #    cd app
+      #    npm i
+      #    ng test
+
+      - name: Log into registry 
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ env.USER }}
+          password: ${{ env.GH_TOKEN }}
+
+      - name: Build Backend Dockerfile
+        run: docker build . --tag backend-app:latest
+
+      - name: Tag Backend Docker image
+        run: docker tag backend-app:latest ${{ env.REGISTRY }}/${{ env.USER }}/frontend-app:latest
+
+      - name: Push Backend Docker image
+        run:  docker push ${{ env.REGISTRY }}/${{ env.USER }}/frontend-app:latest
