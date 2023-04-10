@@ -29,7 +29,4 @@ jobs:
         run:  npm install -g @angular/cli
 
       - name: test app
-        run: |
-          cd app
-          npm i
-          ng test
+        run: ng test
